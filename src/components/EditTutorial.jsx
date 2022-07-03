@@ -1,24 +1,24 @@
 
 
-const EditTutorial = ({editTutorial, data, handleChange,setData}) => {
+const EditTutorial = ({editTutorial, data, handleChange}) => {
   
     const saveChanges = () =>{
       editTutorial(data.id,data.title,data.desc);
-      setData({
-        id: '',
-        title: '',
-        desc: ''
-      })
+      // setData({
+      //   id: '',
+      //   title: '',
+      //   desc: ''
+      // })   // after adding data-bs-dismiss to button we dont need this anymore. 
     }
 
     return (
      
       <div>
-        <div className="modal" tabIndex="-1" id="edit-modal" >
+        <div className="modal fade" tabIndex="-1" id="edit-modal" >
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <input className="modal-title" value={data.title} name="title" onChange={handleChange}/>
+                <input className="modal-title form-control w-75"  value={data.title} name="title" onChange={handleChange}/>
                 <button
                   type="button"
                   className="btn-close"
@@ -27,7 +27,7 @@ const EditTutorial = ({editTutorial, data, handleChange,setData}) => {
                 ></button>
               </div>
               <div className="modal-body">
-              <input className="modal-title" value={data.desc} name="desc" onChange={handleChange}/>
+              <input className="modal-title form-control w-75" value={data.desc} name="desc" onChange={handleChange}/>
               </div>
               <div className="modal-footer">
                 <button
@@ -37,7 +37,7 @@ const EditTutorial = ({editTutorial, data, handleChange,setData}) => {
                 >
                   Close
                 </button>
-                <button onClick={saveChanges} type="button" className="btn btn-primary">
+                <button onClick={saveChanges} type="button" className="btn btn-primary" data-bs-dismiss="modal">
                   Save changes
                 </button>
               </div>

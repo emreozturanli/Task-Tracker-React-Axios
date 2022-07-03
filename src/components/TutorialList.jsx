@@ -10,7 +10,7 @@ const TutorialList = ({tutorials,deleteTutorial, editTutorial}) => {
     desc: ''
   })
 
-  const sendId = (id,title,description) => {
+  const sendData = (id,title,description) => {
     setData({
       id:id,
       title:title,
@@ -50,7 +50,7 @@ const TutorialList = ({tutorials,deleteTutorial, editTutorial}) => {
                   <FaEdit 
                   data-bs-toggle="modal"
                   data-bs-target="#edit-modal"
-                  onClick={()=>sendId(id,title,description)} 
+                  onClick={()=>sendData(id,title,description)} 
                   size={20} 
                   className="me-3 text-warning " 
                   role="button"
@@ -63,7 +63,7 @@ const TutorialList = ({tutorials,deleteTutorial, editTutorial}) => {
         </tbody>
       </table>
       
-      <EditTutorial data={data} editTutorial={editTutorial} handleChange={handleChange} setData={setData} />
+      <EditTutorial data={data} editTutorial={editTutorial} handleChange={handleChange} />
       
     </div>
   );
